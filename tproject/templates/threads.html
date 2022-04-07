@@ -1,0 +1,49 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="page-header theme-bg-dark py-5 text-center position-relative">
+    <div class="theme-bg-shapes-right"></div>
+    <div class="theme-bg-shapes-left"></div>
+    <div class="container">
+        <h1 class="page-heading single-col-max mx-auto">{{categories.category_name}}</h1>
+        <div class="page-intro single-col-max mx-auto">{{categories.category_description}}</div>
+        {% comment %} <div class="main-search-box pt-3 d-block mx-auto"> 
+             <form class="search-form w-100">
+                <input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">
+                <button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+            </form>
+            {% endcomment %}
+         </div>
+    </div>
+</div><!--//page-header-->
+
+<div class="page-content">
+    <div class="container">
+        <div class="docs-overview py-5">
+            <div class="row justify-content-center">
+                {% for thread in threads %}
+                <div class="col-12 col-lg-4 py-3">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">
+                                <span class="theme-icon-holder card-icon-holder me-2">
+                                   <img class="rounded-circle"  width="50px" src="{{thread.twitter.twitter_image.url}}" alt="">
+                                </span><!--//card-icon-holder-->
+                                <a href="{{thread.twitter.twitter_link}}" class="text-decoration-none"><span class="h6">{{thread.twitter.twitter_name}}</span></a>
+                            </h5>
+                            <div class="h5">
+                                <a href="{{thread.thread_link}}" target="_blank" class="text-decoration-none">{{thread.thread_title}}</a>
+                            </div>
+                            <a class="card-link" href="show" target="_blank">Visit</a>
+                        </div><!--//card-body-->
+                    </div><!--//card-->
+                </div><!--//col-->
+                {% endfor %}
+            </div><!--//row-->
+        </div><!--//container-->
+    </div><!--//container-->
+</div><!--//page-content-->
+    
+{% endblock content %}

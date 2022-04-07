@@ -1,0 +1,64 @@
+{% extends '_base.html' %}
+{% load static %}
+
+
+<div class="page-header theme-bg-dark py-5 text-center position-relative">
+	<div class="theme-bg-shapes-right"></div>
+	<div class="theme-bg-shapes-left"></div>
+	<div class="container">
+		<h1 class="page-heading single-col-max mx-auto">Developer twitter threads</h1>
+		<div class="page-intro single-col-max mx-auto">This is  great threads resource list for developers.</div>
+		{% comment %} <div class="main-search-box pt-3 d-block mx-auto"> 
+			 <form class="search-form w-100">
+				<input type="text" placeholder="Search the docs..." name="search" class="form-control search-input">
+				<button type="submit" class="btn search-btn" value="Search"><i class="fas fa-search"></i></button>
+			</form>
+			{% endcomment %}
+		 </div>
+	</div>
+</div><!--//page-header-->
+
+{% block content %}
+
+
+   <div class="page-content">
+	    <div class="container">
+		    <div class="docs-overview py-5">
+			    <div class="row justify-content-center">
+					{% for category in categories %}
+				    <div class="col-12 col-lg-4 py-3">
+					    <div class="card shadow-sm">
+						    <div class="card-body">
+							    <h5 class="card-title mb-3">
+								    <span class="theme-icon-holder card-icon-holder me-2">
+								        <i class="{{category.category_icon_code}}"></i>
+							        </span><!--//card-icon-holder-->
+							        <span class="card-title-text">{{category.category_name}}</span>
+							    </h5>
+							    <div class="card-text">
+								    {{category.category_description}}
+							    </div>
+							    <a class="card-link-mask" href="{% url 'threads_by_category' category.category_slug %}"></a>
+						    </div><!--//card-body-->
+					    </div><!--//card-->
+				    </div><!--//col-->
+					{% endfor %}
+			    </div><!--//row-->
+		    </div><!--//container-->
+		</div><!--//container-->
+    </div><!--//page-content-->
+
+    <section class="cta-section text-center py-5 theme-bg-dark position-relative">
+	    <div class="theme-bg-shapes-right"></div>
+	    <div class="theme-bg-shapes-left"></div>
+	    <div class="container">
+		    <h3 class="mb-2 text-white mb-3">Contribute to the developer world</h3>
+		    <div class="section-intro text-white mb-3 single-col-max mx-auto">Share your educational threads with us to contribute to the world of software and the Web.<a class="text-white" href="#">Send Threads</a> Share to promote and contribute to the thread..</div>
+		    <div class="pt-3 text-center">
+			    <a class="btn btn-light" href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/coderpro-bootstrap-5-startup-template-for-software-projects/">Get CoderPro<i class="fas fa-arrow-alt-circle-right ml-2"></i></a>
+		    </div>
+	    </div>
+    </section><!--//cta-section-->
+
+    
+{% endblock content %}   
