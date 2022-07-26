@@ -11,3 +11,6 @@ https://devthreads.pythonanywhere.com/
 
 - Contact me for more.
 - https://twitter.com/aayteekin
+
+![preview](https://github.com/aytekinet/threads/blob/main/media/twitter_image/devthreads-preview.png)
+
